@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.Polly" Version="3.7.106.37" />
     <PackageReference Include="Google.Cloud.TextToSpeech.V1" Version="3.2.0" />
     <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.27.0" />
     <PackageReference Include="Moq" Version="4.18.4" />

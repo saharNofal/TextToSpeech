@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Google.Cloud.TextToSpeech.V1;
 using System.Net.Http;
 using System.Threading.Tasks;
+using TextToSpeech;
 
 namespace TextToSpeechApp
 {
@@ -19,7 +20,9 @@ namespace TextToSpeechApp
             // Check that the correct number of arguments were provided
             if (args.Length != 4)
             {
-                Console.WriteLine("Usage: TextToSpeechApp.exe <api_name> <api_key> <input_file> <output_file>");
+                Console.WriteLine("Usage: TextToSpeechApp <api_name> <api_key> <input_file> <output_file>");
+                Console.WriteLine("Available APIs: Azure, Google, AWS");
+               var  val = Console.ReadLine();
                 return;
             }
 
@@ -39,11 +42,11 @@ namespace TextToSpeechApp
                     await AzureSpeech.TextToSpeechWithAzure(inputText, outputFile, apiKey);
                     break;
 
-                case "api2":
-                    await SpeechWithApi2.TextToSpeechWithApi2(inputText, outputFile, apiKey);
+                case "AWS":
+                    await SpeechWithAWS.TextToSpeechWithAWS(inputText, outputFile, apiKey);
                     break;
 
-                case "api3":
+                case "Google":
                     await SpeechWithGoogle.TextToSpeechWithGoogle(inputText, outputFile, apiKey);
                     break;
 
